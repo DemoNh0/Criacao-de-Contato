@@ -16,6 +16,8 @@ interface Contato {
 
 export class HomePage {
 
+  alertButtons = ['Ok'];
+
   contatos: Contato[] = [];
   contato: Contato = { nome: '', email: '', telefone: '' };
 
@@ -32,6 +34,10 @@ export class HomePage {
   }
 
   async salvarContato() {
+    if (this.contato.nome === '' || this.contato.email === '' || this.contato.telefone === ''){
+
+      return;
+    }
     if (this.indiceEdicao >= 0) {
       await this.ContatosService.atualizarContato(this.indiceEdicao, this.contato);
     } else {

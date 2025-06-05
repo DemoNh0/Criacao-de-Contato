@@ -7,6 +7,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
+  <!-- Alerta -->
+
+  <ion-alert
+  trigger="alerta"
+  header="Por favor insira os dados"
+  message="Algum dado está faltando"
+  [buttons]="alertButtons"
+></ion-alert>
+
+
   <!-- Formulário de cadastro -->
    <ion-item>
     <ion-label position="floating">Nome</ion-label>
@@ -23,7 +34,7 @@
     <ion-input [(ngModel)]="contato.telefone"></ion-input>
   </ion-item>
 
-  <ion-button expand="full" (click)="salvarContato()">
+  <ion-button id="alerta" expand="full" (click)="salvarContato()">
     {{ indiceEdicao >= 0 ? 'Atualizar' : 'Cadastrar' }} Contato
   </ion-button>
 
